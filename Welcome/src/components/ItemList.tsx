@@ -10,11 +10,14 @@ const ItemList : React.FC = () => {
     const decrementCounter =()=>{
         setItemCounter(prevCounter => prevCounter-1)
     }
+    const emptyCounter = () =>{
+        setItemCounter(prevCounter => prevCounter = 0)
+    }
     return (
         <div>
             <input type="button" value="+" onClick={incrementCounter} />
             <input type="number" disabled value={itemCounter}/>
-            <input type="button" value="-" onClick={decrementCounter} />
+            <input type="button" value="-" onClick={decrementCounter} onDoubleClick={emptyCounter} />
             <ul>
                 {items.map((val: string) => (
                     <li>{val}</li>
